@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-model 指令</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-model 指令</h1>
+    <hr>
+    <div id="app">
+        <div>文本值：{{ count }}</div>
+        <h3>v-model</h3>
+        <input type="text" v-model="count">
+        <div>
+        <h3>v-model.lazy</h3>
+        <input type="text" v-model.lazy="count">
+        </div>
+        <div>
+        <h3>v-model.number 注意：如果先输入字符在输入数字就失效了</h3>
+        <input type="text" v-model.number="count">
+        </div>
+        <div>
+        <h3> textarea 文本域</h3>
+          <textarea name="" id="" cols="30" rows="10" v-model="count"></textarea>
+        </div>
+        <div>
+        <h3>多选绑定一个值</h3>
+          <input type="checkbox" name="" id="one" v-model="isRadio">
+          <label for="one">单选 {{ isRadio }}</label>
+        </div>
+        <div>
+        <h3>多选绑定数组</h3>
+          <div>选中的学生 {{ studentData }}</div>
+          <input type="checkbox" name="" id="one" value ="Paniter" v-model="studentData">
+          <label for="one">Paniter</label>
+          <input type="checkbox" name="" id="two"  value ="LinSun" v-model="studentData">
+          <label for="two">LinSun</label>
+          <input type="checkbox" name="" id="thres" value ="Gxh" v-model="studentData">
+          <label for="three">Gxh</label>
+        </div>
+        <div>
+        <h3>单选</h3>
+          <div>你的性别：{{ sex }}</div>
+          <input type="radio" name="" id="one" value="男" v-model="sex">
+          <label for="one">男</label>
+          <input type="radio" name="" id="two" value="女" v-model="sex">
+          <label for="two">女</label>
+        </div>
+    </div>
+    <script>
+    var app = new Vue({
+        el: '#app',
+        data:{
+            count: 'hellow world!',
+            isRadio:true,
+            studentData: [],
+            sex: '女'
+        }
+    })
+    </script>
+</body>
+</html>

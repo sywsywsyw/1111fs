@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-text & v-html 指令</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>v-text & v-html 指令</h1>
+    <hr>
+    <div id="app">
+        <h2>v-text 建议开发中使用v-text 少用、不用双括号 <br> 注意：因为是双括号是有弊端的，就是当我们网速很慢或者javascript出错时，会暴露我们的双括号。Vue给我们提供的v-text,就是解决这个问题的。</h2>
+        <span v-text="message"></span> == <span>{{ message }}</span>
+        <h2>v-html 为了输出真正的HTML，你就需要使用v-html 指令。 <br> 注意：在生产环境中动态渲染HTML是非常危险的，因为容易导致XSS攻击。所以只能在可信的内容上使用v-html，永远不要在用户提交和可操作的网页上使用。</h2>
+        <span v-html='html'>这是通过v-html指令输出的span标签</span>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                'message':  100,
+                'html':'<span>这是通过v-html指令输出的span标签</span>'
+            }
+        })
+    </script>
+</body>
+
+</html>

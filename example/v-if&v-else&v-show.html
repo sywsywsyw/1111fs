@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-if&v-else&v-show 指令</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-if&v-else&v-show 指令</h1>
+    <hr>
+    <div id="app">
+        <div v-if="isTure">你好，小笔。<strong>(v-if 判断什么时候加载，减轻服务器压力，按需加载)</strong> </div>
+        <div v-else>请登陆 (v-else)</div>
+        <div v-show="isTure">你好，小笔。<strong>（v-show 调整css display属性，提高用户客户端流畅性）</strong></div>
+    </div>
+    <script>
+    var app = new Vue({
+        el: '#app',
+        data:{
+            'isTure': true
+        }
+    })
+    </script>
+</body>
+</html>

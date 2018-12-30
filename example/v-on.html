@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-on 指令</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>v-on 指令</h1>
+    <hr>
+    <div id="app">
+        <h2>v-on: 可以简写为 @ </h2>
+        <div>结果：{{ value }}</div>
+        <button v-on:click="addNumber">加法</button>
+        <button @click="minNumber">减法</button>
+        <h2>修饰符 v-on:keyup.enter</h2>
+        <input type="text" v-on:keyup.enter="onEnter" v-model="secondValue">
+        
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                'value': 0,
+                'secondValue': 0,
+            },
+            methods: {
+                addNumber: function () {
+                    return this.value++;
+                },
+                minNumber: function () {
+                    return this.value--;
+                },
+                onEnter: function () {
+                    this.value = this.value + parseInt(this.secondValue);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

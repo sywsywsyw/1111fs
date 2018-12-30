@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind 指令</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .blue {
+           color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>v-bind 指令</h1>
+    <hr>
+    <div id="app">
+        <h2>绑定img的src</h2>
+        <img v-bind:src="imgSrc" alt="">
+        <h2>绑定classA</h2>
+        <span v-bind:class="classA">绑定classA</span>
+        <h2>绑定classA的判断</h2>
+        <span v-bind:class="{'red':ifOk}">绑定classA的判断</span>
+        <h2>绑定class的数组</h2>
+        <span v-bind:class="[classA,classB]">绑定class的数组</span>
+        <h2>绑定class的三元表达式</h2>
+        <span v-bind:class="ifOk?classA:classB">绑定classA</span>
+        <h2>绑定style</h2>
+        <div  v-bind:style="{color:red,fontSize:font}">绑定style</div>
+        <h2>用对象绑定style样式</h2>
+        <div  v-bind:style="styleObject">用对象绑定style样式</div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                'imgSrc': 'https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/home/img/qrcode/zbios_efde696.png',
+                'classA': 'red',
+                'ifOk': false,
+                'classB': 'blue',
+                red: 'red',
+                font: '20px',
+                styleObject: {
+                    fontSize: '16px',
+                    color: 'green'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
