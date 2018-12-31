@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Vue.set 全局操作</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1> Vue.set 全局操作 的作用就是在构造器外部操作构造器内部的数据、属性或者方法。</h1>
+    <hr>
+    <div id="app">
+        <h2> Vue.set </h2>
+        <p>{{ count }}</p>
+        <button onclick="add()">加分</button>
+    </div>
+    <div id="apps">
+        <h2> Vue.set </h2>
+        <h2>为什么要有Vue.set的存在?</br>由于Javascript的限制，Vue不能自动检测以下变动的数组。
+            当你利用索引直接设置一个项时，vue不会为我们自动更新。</br>这时我们的界面是不会自动跟新数组的，我们需要用Vue.set(app.arr,1,’ddd’)来设置改变，vue才会给我们自动更新，这就是Vue.set存在的意义。</h2>
+        <ul>
+            <li v-for="item in arr">{{item}}</li>
+        </ul>
+        <button onclick="changeData()">改变数组</button>
+    </div>
+    <script>
+        // 声明一个函数
+        function add() {
+            // vue.set
+            Vue.set(outData,'count',4)
+            // 用Vue对象的方法添加
+            // app.count++;
+            // 直接操作外部数据
+            // outData.count++;
+        }
+        // 声明一个变量
+        var outData = {
+            count: 1
+        }
+
+        var app = new Vue({
+            el: '#app',
+            data: outData
+        })
+        // --------------------
+
+        function changeData(){
+            Vue.set(appTwo.arr,1,'ddd');
+        }
+        var arrData = {
+            arr:['aaa', 'bbb', 'ccc']
+        }
+        var appTwo = new Vue({
+            el: '#apps',
+            data: arrData
+        })
+    </script>
+</body>
+
+</html>

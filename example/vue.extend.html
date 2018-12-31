@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Vue.extend 构造器的延伸</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1> Vue.extend 构造器 经常服务于Vue.component用来生成组件，可以简单理解为当在模板中遇到该组件名称作为标签的自定义元素时，会自动调用“扩展实例构造器”来生产组件实例，并挂载到自定义元素上</h1>
+    <hr>
+    <div id="app">
+        <h2> Vue.extend</h2>
+        <authorLabel></authorLabel>
+    </div>
+    <script>
+        var authorExtend = Vue.extend({
+            template: '<p><a :href="authorUrl" v-text="authorName"></a></P>',
+            data:function(){
+               return{
+                    authorUrl: 'https://github.com/sywsywsyw',
+                    authorName: '孙小笔'
+                }
+            }
+        });
+        new authorExtend().$mount('authorLabel')
+    </script>
+</body>
+
+</html>

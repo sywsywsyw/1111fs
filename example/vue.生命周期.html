@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Vue.set 全局操作</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1> Vue.set 全局操作 的作用就是在构造器外部操作构造器内部的数据、属性或者方法。</h1>
+    <hr>
+    <div id="app">
+        <h2> Vue.set </h2>
+        <p>{{ message }}</p>
+        <button @click="jia">加分</button>
+        <button onclick="app.$destroy()">销毁</button>
+
+        <div>
+            beforeCreate:function(){
+            console.log('1-beforeCreate 初始化之前');
+            document.write('1-beforeCreate 初始化之前');
+            },
+            // 常用
+            created:function(){
+            console.log('2-created 创建完成');
+            document.write('2-created 创建完成');
+            },
+            beforeMount:function(){
+            console.log('3-beforeMount 挂载之前');
+            document.write('3-beforeMount 挂载之前');
+            },
+            // 常用
+            mounted:function(){
+            console.log('4-mounted 被创建');
+            document.write('4-mounted 被创建');
+            },
+            beforeUpdate:function(){
+            console.log('5-beforeUpdate 数据更新前');
+            document.write('5-beforeUpdate 数据更新前');
+            },
+            updated:function(){
+            console.log('6-updated 被更新后');
+            document.write('6-updated 被更新后');
+            },
+            // 组件时候用
+            activated:function(){
+            console.log('7-activated');
+            document.write('7-activated');
+            },
+            // 组件时候用
+            deactivated:function(){
+            console.log('8-deactivated');
+            document.write('8-deactivated');
+            },
+            beforeDestroy:function(){
+            console.log('9-beforeDestroy 销毁之前');
+            document.write('9-beforeDestroy 销毁之前');
+            },
+            destroyed:function(){
+            console.log('10-destroyed 销毁之后');
+            document.write('10-destroyed 销毁之后');
+            }
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 1
+            },
+            methods: {
+                jia: function () {
+                    this.message++;
+                }
+            },
+            beforeCreate: function () {
+                console.log('1-beforeCreate 初始化之前');
+                document.write('1-beforeCreate 初始化之前');
+            },
+            // 常用
+            created: function () {
+                console.log('2-created 创建完成');
+                document.write('2-created 创建完成');
+            },
+            beforeMount: function () {
+                console.log('3-beforeMount 挂载之前');
+                document.write('3-beforeMount 挂载之前');
+            },
+            // 常用
+            mounted: function () {
+                console.log('4-mounted 被创建');
+                document.write('4-mounted 被创建');
+            },
+            beforeUpdate: function () {
+                console.log('5-beforeUpdate 数据更新前');
+                document.write('5-beforeUpdate 数据更新前');
+            },
+            updated: function () {
+                console.log('6-updated 被更新后');
+                document.write('6-updated 被更新后');
+            },
+            // 组件时候用
+            activated: function () {
+                console.log('7-activated');
+                document.write('7-activated');
+            },
+            // 组件时候用
+            deactivated: function () {
+                console.log('8-deactivated');
+                document.write('8-deactivated');
+            },
+            beforeDestroy: function () {
+                console.log('9-beforeDestroy 销毁之前');
+                document.write('9-beforeDestroy 销毁之前');
+            },
+            destroyed: function () {
+                console.log('10-destroyed 销毁之后');
+                document.write('10-destroyed 销毁之后');
+            }
+        })
+    </script>
+</body>
+
+</html>

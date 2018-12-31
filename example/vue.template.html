@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>template 模板</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>template 模板得三种写法</h1>
+    <hr>
+    <div id="app">
+
+    </div>
+    <template id="two">
+        <h2>第二种写法</h2>
+    </template>
+    <script type="x-template" id="three" src>
+        <h2>第三种写法 我可以直接用src引入外部文件哦</h2>
+     </script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                'message': 'hellow world!'
+            },
+            //     template: `
+            //    <h2>我是第一种写法</h2>
+            //     `,
+            // template: '#two',
+            template: '#three'
+        })
+    </script>
+</body>
+
+</html>

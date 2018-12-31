@@ -22,7 +22,7 @@
         <div v-pre> v-pre {{message}}</div>
         <h2> v-cloak指令 在vue渲染完指定的整个DOM后才进行显示。它必须和CSS样式一起使用，</h2>
         <div v-cloak> v-cloak {{message}}</div>
-        <h2> v-cloak指令 在第一次DOM时进行渲染，渲染完成后视为静态内容，跳出以后的渲染过程。</h2>
+        <h2> v-once指令 在第一次DOM时进行渲染，渲染完成后视为静态内容，跳出以后的渲染过程。</h2>
         <div v-once>第一次绑定的值：{{message}}</div>
         <div >{{message}}</div>
         <div><input type="text" v-model="message"></div>
