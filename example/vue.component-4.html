@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>component 组件</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>component 标签 是Vue框架自定义的标签，它的用途就是可以动态绑定我们的组件，根据数据的不同更换不同的组件。</h1>
+    <h2>v-bind:is="who" 我们在html里插入component标签，并绑定who数据，根据who的值不同，调用不同的组件。</h2>
+    <hr>
+    <div id="app">
+        <component v-bind:is="who"></component>
+        <button v-on:click="changeCom">改变component标签</button>
+    </div>
+    <script>
+        var componentAtext = {
+            template: `<div style="color:green">我是组件componentA</div>`
+        }
+        var componentBtext = {
+            template: `<div style="color:red">我是组件componentB</div>`
+        }
+        var componentCtext = {
+            template: `<div style="color:blue">我是组件componentC</div>`
+        }
+        var app = new Vue({
+            el: '#app',
+            data: {
+                who: componentCtext
+            },
+            // 局部组件
+            components: {
+                'componentA': componentAtext,
+                'componentB': componentBtext,
+                'componentC': componentCtext
+            },
+            methods: {
+                changeCom: function () {
+                    console.log(this.who)
+                    if (this.who == "componentA") {
+                        this.who = "componentB"
+                    } else if (this.who == "componentB") {
+                        this.who = "componentC"
+                    } else {
+                        this.who = "componentA"
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

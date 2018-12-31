@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>component 组件</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>component ： 全局组件 局部组件</h1>
+    <hr>
+    <div id="app">
+        <global></global>
+        <topo></topo>
+    </div>
+    <div id="exapp">
+        <global></global>
+    </div>
+
+    <h2>组件和指令的区别</h2>
+    <div>组件注册的是一个标签，而指令注册的是已有标签里的一个属性。在实际开发中我们还是用组件比较多，指令用的比较少。因为指令看起来封装的没那么好</div>
+    <script>
+        // 全局组件
+        Vue.component('global', {
+            template: `
+            <div>
+            <h1>我是全局的组件</h1>
+            </div>
+        `
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                'message': 'hellow world!'
+            },
+            // 局部组件
+            components: {
+                'topo': {
+                    template: '<div><h1>我是局部的组件</h1></div>'
+                }
+            }
+        })
+        var app = new Vue({
+            el: '#exapp',
+            data: {
+                'message': 'hellow world!'
+            }
+        })
+    </script>
+</body>
+
+</html>

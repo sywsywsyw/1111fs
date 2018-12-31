@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>component 组件</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>component ： 选项props : []  props选项就是设置和获取标签上的属性值的，</h1>
+    <hr>
+    <div id="app">
+        <topo here="小笔"> </topo>
+        <topo v-bind:here="message"> </topo>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                'message': '我是data上传递的值message'
+            },
+            // 局部组件
+            components: {
+                'topo': {
+                    template: '<div><h2>我要获取组件上传递的值  ------- {{  here }}</h2></div>',
+                    props: ['here']
+                },
+                'topoTwo': {
+                    template: '<div><h2>我要获取data上传递的值  ------ {{  message }}</h2></div>',
+                    props: ['here']
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
