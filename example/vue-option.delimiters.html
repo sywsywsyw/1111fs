@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Helloworld 实例</title>
+    <title>delimiters 改变插值符号</title>
     <script type="text/javascript" src="../assets/js/vue.js"></script>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <h1>delimiters 改变插值符号 Vue默认的插值是双大括号{{}}。但有时我们会有需求更改这个插值的形式。</h1>
     <hr>
     <div id="app">
         {{ message }}
+        ${message}
     </div>
     <script>
     var app = new Vue({
         el: '#app',
         data:{
             message: 'hellow world!'
-        }
+        },
+        delimiters:['${','}']
     })
     </script>
 </body>

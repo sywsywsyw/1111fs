@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>extends 扩展选项</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>extends 扩展选项 通过外部增加对象的形式，对构造器进行扩展。它和我们上节课讲的混入非常的类似。</h1>
+    <hr>
+    <h3>
+        执行顺序： 构造>原生 （可以在控制台查看具体效果）
+    </h3>
+    <div id="app">
+        <p>值{{num}}</p>
+        <button @click="add">add</button>
+    </div>
+    <script>
+        // 我是扩展的方法
+        var extendsText = {
+            updated() {
+                console.log('我是构造器里扩展的方法' + this.num);
+            },
+        };
+        var app = new Vue({
+            el: '#app',
+            data: {
+                num: 0,
+            },
+            //我是原生的方法
+            methods: {
+                add: function () {
+                    this.num += 1;
+                   console.log('我是原生的方法' + this.num);
+                }
+            },
+            extends:extendsText
+        })
+    </script>
+</body>
+
+</html>

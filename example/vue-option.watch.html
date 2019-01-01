@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>wtach 监控属性</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>wtach 监控属性 数据变化的监控经常使用</h1>
+    <hr>
+
+    <div id="app">
+        <div>
+            <p>室外温度：{{ wendu }}°</p>
+            <p>穿衣指数：{{ chuanyizhishu }}</p>
+            <p><button @click="upWenDu">增加温度</button><button @click="downWenDu">减少温度</button></p>
+        </div>
+        <h2>构造器里面的写法</h2>
+        <p>
+            watch: {
+            wendu: function (newVal, oldVal) {
+
+             }
+            }
+        </p>
+        <h2>构造器里面的外面</h2>
+        <p>
+            app.$watch('wendu', function (newVal, oldVal) {})
+        </p>
+    </div>
+    <script>
+        var chuanyi_Array = ['短裤T恤', '长裤外套', '棉衣棉裤'];
+        var app = new Vue({
+            el: '#app',
+            data: {
+                wendu: 20,
+                chuanyizhishu: '短裤T恤'
+            },
+            methods: {
+                upWenDu: function () {
+                    this.wendu += 5;
+                },
+                downWenDu: function () {
+                    this.wendu -= 5;
+                }
+            },
+            // watch: {
+            //     wendu: function (newVal, oldVal) {
+            //         if (newVal >= 30) {
+            //             this.chuanyizhishu = chuanyi_Array[0];
+            //         } else if (newVal < 30 && newVal > 10) {
+            //             this.chuanyizhishu = chuanyi_Array[1];
+            //         } else {
+            //             this.chuanyizhishu = chuanyi_Array[2];
+            //         }
+            //     }
+            // }
+        })
+        app.$watch('wendu', function (newVal, oldVal) {
+            if (newVal >= 30) {
+                this.chuanyizhishu = chuanyi_Array[0];
+            } else if (newVal < 30 && newVal > 10) {
+                this.chuanyizhishu = chuanyi_Array[1];
+            } else {
+                this.chuanyizhishu = chuanyi_Array[2];
+            }
+        })
+    </script>
+</body>
+
+</html>

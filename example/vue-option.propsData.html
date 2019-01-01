@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>propsData 全局扩展的数据传递</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>propsData 全局扩展的数据传递</h1>
+    <hr>
+    <div id="app">
+        <test></test>
+    </div>
+    <h4>扩展标签做好了，这时我们要在挂载时传递一个数字过去，我们就用到了propsData。 我们用propsData三步解决传值： <br>
+        1.在全局扩展里加入props进行接收。propsData:{propsDataText:'propsData传递的值'}<br>
+        2.传递时用propsData进行传递。props:['propsDataText']<br>
+        3.用插值的形式写入模板。{{ propsDataText }}<br>
+    </h4>
+    <script>
+       var testText = Vue.extend({
+           template:`<div><h2>{{ message }} / {{ propsDataText }}</h2></div>`,
+           data:function(){
+               return {
+                   message:'全局传递的数据'
+               }
+           },
+           props:['propsDataText']
+       })
+       new testText({propsData:{propsDataText:'propsData传递的值'}}).$mount('test');
+    </script>
+</body>
+</html>
