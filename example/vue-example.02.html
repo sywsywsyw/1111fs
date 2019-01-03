@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Vue 实例方法</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1> Vue 实例方法</h1>
+    <hr>
+    <div id="app">
+        <h2>$mount 方法用来挂载我们的扩展。</h2>
+        <p>{{message}}</p>
+        <h2>$destroy() 用$destroy()进行卸载。</h2>
+        <p><button onclick="destroy()">卸载</button></p>
+        <h2>$forceUpdate() 更新方法</h2>
+        <h2>$nextTick() 数据修改方法 当Vue构造器里的data值被修改完成后会调用这个方法，也相当于一个钩子函数吧，和构造器里的updated生命周期很像。</h2>
+        <p><button onclick="forceUpdate()">更新</button></p>
+    </div>
+    <script>
+        // $mount 方法用来挂载我们的扩展。
+        // var app = Vue.extend({
+        //     template: `<p>{{message}}</p>`,
+        //     data: function () {
+        //         return {
+        //             message: 'Hello'
+        //         }
+        //     }
+        // })
+        // var vm = new app().$mount("#app")
+        // $destroy() 用$destroy()进行卸载。
+        // function destroy() {
+        //     vm.$destroy();
+        // }
+        // $forceUpdate() 更新方法
+        // vm.$forceUpdate()
+        // $nextTick() 数据修改方法
+        // function tick() {
+        //     vm.message = "update message info ";
+        //     vm.$nextTick(function () {
+        //         console.log('message更新完后我被调用了');
+        //     })
+        // }
+    </script>
+</body>
+
+</html>

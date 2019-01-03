@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Vue 实例事件</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1> Vue 实例事件
+        实例事件就是在构造器外部写一个调用构造器内部的方法。这样写的好处是可以通过这种写法在构造器外部调用构造器内部的数据。$on接收两个参数，第一个参数是调用时的事件名称，第二个参数是一个匿名方法。如果按钮在作用域外部，可以利用$emit来执行。如果按钮在作用域外部，可以利用$emit来执行。如果按钮在作用域外部，可以利用$emit来执行。</h1>
+    <hr>
+    <div id="app">
+        <p>{{num}}</p>
+        <p><button @click="add">加分</button></p>
+        <h2>$on 在构造器外部添加事件。</h2>
+      
+    </div>
+        <p><button onclick="reduce()">作用域外面reduce</button></p>
+        <h2>$once 执行一次的事</h2>
+        <p><button onclick="reduceOnce()">作用域外面reduce</button></p>
+        <h2>$off关闭事件</h2>
+        <p><button onclick="off()">off</button></p>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                num: 0
+            },
+            methods: {
+                add:function(){
+                    this.num++;
+                }
+            },
+        })
+        app.$on('reduce', function () {
+            console.log('执行了reduce()');
+            this.num--;
+        });
+        //外部调用内部事件
+        function reduce() {
+            app.$emit('reduce');
+        }
+        app.$once('reduceOnce', function () {
+            console.log('只执行一次的方法');
+            this.num--;
+        });
+         //外部调用内部事件
+        function reduceOnce() {
+            app.$emit('reduceOnce');
+        }
+        //关闭事件
+        function off() {
+            app.$off('reduce');
+        }
+    </script>
+</body>
+
+</html>
